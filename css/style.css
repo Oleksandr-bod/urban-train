@@ -1,0 +1,102 @@
+/* Загальні стилі */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Catamaran', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #fff; /* білий текст */
+    background: url('../images/The_Secret_Garden.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+/* Темне затемнення поверх фону */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* регулюйте прозорість 0.4–0.6 */
+    z-index: 0;
+}
+
+header, main, footer {
+    position: relative; /* щоб контент був над затемненням */
+    z-index: 1;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 50px 20px 30px 20px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); /* сильна тінь для читабельності */
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ffeb3b; /* яскравий жовтий */
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* Grid кнопок */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+/* Кнопки */
+.button-grid button {
+    background: rgba(255, 193, 7, 0.9); /* яскравий жовтий напівпрозорий */
+    border: none;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000; /* чорний текст на жовтому */
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.button-grid button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    background-color: rgba(0,0,0,0.6);
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.5rem; }
+    .button-grid button { padding: 15px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 2rem; }
+    .button-grid { gap: 12px; }
+    .button-grid button { padding: 12px; font-size: 0.8rem; }
+}
